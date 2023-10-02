@@ -15,17 +15,25 @@ appModule = (function () {
                 return {name: blueprint.name, points: blueprint.points.length};
             });
 
-            $('.table').empty();
-            // $('.table').toogleClass('.table-hover');
+            $('.table').children().remove();
+            // $('.table').toogleClass('table-hover');
+            
             $('.table').append('<tr><th>BluePrintName</th><th>TotalPoints</th></tr>');
 
-            bluePrints.forEach(function (info) {
+            bluePrints.map(function (info) {
                 const newRow = $('<tr>');
                 newRow.append('<td>' + info.name + '</td>');
                 newRow.append('<td>' + info.points + '</td>');
                 $('.table').append(newRow);
             });
+
+            // console.log(bluePrints[0].points);
+            const totalPoints = data.reduce((acc, bluePrint) => acc + bluePrint.points.length, 0);
+            $('#total').text(totalPoints);
         });
+
+
+
     }
 
     
