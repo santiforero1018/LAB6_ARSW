@@ -16,6 +16,7 @@ appModule = (function () {
             });
 
             $('.table').empty();
+            // $('.table').toogleClass('.table-hover');
             $('.table').append('<tr><th>BluePrintName</th><th>TotalPoints</th></tr>');
 
             bluePrints.forEach(function (info) {
