@@ -17,7 +17,7 @@
 <body>
     <div class="search">
         Author: <input id="theInput" type="text" placeholder="Author">
-        <button class="query" onclick="appModule.getBluePrints()">Get Blueprints</button>
+        <button onclick="appModule.getBluePrints()">Get Blueprints</button>
     </div>
 
     <h2>Total Blueprints For <span id="AuthorName"></span> </h2>
@@ -35,6 +35,10 @@
         
     </div>
     <h3>Total user points <span id="total"></span></h3>
+    <br>
+    <br>
+    <br>
+    <h3>Blueprint: <span id="selected"></span></h3>
     <canvas id="paint"></canvas>
 
 
@@ -44,9 +48,7 @@
             $('#AuthorName').text(appModule.getAuthorName());
         });
 
-        // $('.query').click(function(){
-        //     appModule.getBluePrints();
-        // });
+        
     </script>
 </body>
 
