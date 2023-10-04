@@ -14,12 +14,12 @@ appModule = (function () {
             const bluePrints = data.map(function(bp){
                 return {name: bp.name, points: bp.points.length};
             });
-
-            $('.table').children().remove();
-            // $('.table').toogleClass('table-hover');
             
-            $('.table').append('<tr><th>BluePrintName</th><th>TotalPoints</th><th>Show</th></tr>');
-
+            
+            
+            $('.table').find('td').remove();
+            
+            
             var i = 0;
             bluePrints.map(function (info) {
                 const newRow = $('<tr>');
@@ -30,33 +30,34 @@ appModule = (function () {
                 i++;
             });
 
-            // console.log(bluePrints[0].points);
+            
             const totalPoints = data.reduce((acc, bluePrint) => acc + bluePrint.points.length, 0);
             $('#total').text(totalPoints);
         });
     }
 
     function getABluePrint(index){
-        const bpname = $('td.bpname')[index].innerText;
-        console.log($('td.bpname')[index].innerText);
+        
+        const bpname = $('td.bpname').eq(index).text();
+        
         apimock.getBlueprintsByNameAndAuthor(author, bpname, function(data){
             var bluePrint = data;
-            console.log(bluePrint.name, bluePrint.points);
+            
             $('#selected').text(bpname);
             var canvas = document.getElementById("paint");
-            console.log(canvas);
+          
             var c = canvas.getContext("2d");
             c.clearRect(0, 0, canvas.width, canvas.height);
-            // c.beginPath();
-            c.strokeStyle = "white";
-            // c.lineWidth = 2;
+            c.beginPath();
+            c.strokeStyle = "red";
+            c.lineWidth = 5;
             bluePrint.points.forEach(function (point, index) {
                 if (index === 0) {
-                    c.moveTo(point.x, point.y);
-                    console.log("Start "+point.x +" "+point.y);
+                    c.moveTo(point.x,point.y);
+                    
                 } else {
                     c.lineTo(point.x, point.y);
-                    console.log("Continue "+point.x +" "+point.y);
+                    
                 }
             });
             c.stroke();
