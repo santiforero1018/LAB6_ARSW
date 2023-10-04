@@ -1,6 +1,10 @@
 appModule = (function () {
     let author = '';
 
+    const api = true;
+
+    let currentApi = api ? apiclient:apimock;
+    
     function setAuthorName() {
         author = $('#theInput').val();
     }
@@ -10,7 +14,7 @@ appModule = (function () {
     }
 
     function getBluePrints(){
-        apimock.getBlueprintsByAuthor(author, function(data){
+        currentApi.getBlueprintsByAuthor(author, function(data){
             const bluePrints = data.map(function(bp){
                 return {name: bp.name, points: bp.points.length};
             });
@@ -40,7 +44,7 @@ appModule = (function () {
         
         const bpname = $('td.bpname').eq(index).text();
         
-        apimock.getBlueprintsByNameAndAuthor(author, bpname, function(data){
+        currentApi.getBlueprintsByNameAndAuthor(author, bpname, function(data){
             var bluePrint = data;
             
             $('#selected').text(bpname);
