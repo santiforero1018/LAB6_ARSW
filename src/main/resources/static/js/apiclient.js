@@ -1,6 +1,6 @@
 apiclient =(function(){
     
-    const apiUrl = "http://localhost:8080/API-V1.0Blueprints";
+    const apiUrl = "/API-V1.0Blueprints";
     
     return {
         getBlueprintsByAuthor: function (authname, callback) {
