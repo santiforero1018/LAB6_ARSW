@@ -1,6 +1,8 @@
 ### Escuela Colombiana de Ingeniería
 ### Arquiecturas de Software
 
+### Santiago Forero Yate, Juan Sebastian Cepeda Saray
+
 ## Construción de un cliente 'grueso' con un API REST, HTML5, Javascript y CSS3. Parte I.
 
 ### Trabajo individual o en parejas. A quienes tuvieron malos resultados en el parcial anterior se les recomienda hacerlo individualmente.
